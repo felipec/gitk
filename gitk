@@ -12508,6 +12508,10 @@ if {[catch {set gitdir [exec git rev-parse --git-dir]}]} {
     exit 1
 }
 
+if {[info exists env(GIT_PREFIX)] && $env(GIT_PREFIX) ne ""} {
+    cd $env(GIT_PREFIX)
+}
+
 set selecthead {}
 set selectheadid {}
 
